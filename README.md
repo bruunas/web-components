@@ -14,9 +14,33 @@ Este repositório contém uma biblioteca de Web Components criada com [StencilJS
 - [StencilJS](https://stenciljs.com/)
 - TypeScript
 - JSX-like syntax para definição dos componentes
+- [Next.js](https://nextjs.org/) - Framework React para desenvolvimento web
+- [Vercel](https://vercel.com) - Plataforma de deploy e hospedagem
 
+## 🚀 Deploy e Hospedagem
+
+### Next.js
+
+O projeto utiliza Next.js como framework principal, oferecendo:
+
+- Renderização híbrida (SSR/SSG)
+- Otimização automática de imagens
+- Roteamento baseado em arquivos
+- Suporte a API Routes
+- Hot Reloading durante o desenvolvimento
+
+### Deploy na Vercel
+
+A Vercel oferece:
+
+- Deploy automático a partir do GitHub
+- Preview deployments para cada PR
+- Analytics e monitoramento
+- Integração com domínios personalizados
+- SSL automático
 
 ## 📚 Aprendizados
+
 Este repositório também servirá como base para anotações sobre:
 
 - Ciclo de vida dos Web Components com Stencil
