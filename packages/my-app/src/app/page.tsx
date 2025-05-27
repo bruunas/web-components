@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { MyComponent } from "../../lib/components/stencil-generated/components";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
           height={38}
           priority
         />
+        <MyComponent>Hello World</MyComponent>
         <ol>
           <li>
             Get started by editing <code>src/app/page.tsx</code>.
