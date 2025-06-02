@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AppRoot {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -20,19 +22,75 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface OfferCard {
+        "description": string;
+        "name": string;
+        "offerId": string;
+        "price": string;
+    }
+    interface OfferDetail {
+        "offerId": string;
+    }
+    interface OfferList {
+    }
+}
+export interface OfferCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLOfferCardElement;
 }
 declare global {
+    interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
+    }
+    var HTMLAppRootElement: {
+        prototype: HTMLAppRootElement;
+        new (): HTMLAppRootElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLOfferCardElementEventMap {
+        "offerClick": string;
+    }
+    interface HTMLOfferCardElement extends Components.OfferCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLOfferCardElementEventMap>(type: K, listener: (this: HTMLOfferCardElement, ev: OfferCardCustomEvent<HTMLOfferCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLOfferCardElementEventMap>(type: K, listener: (this: HTMLOfferCardElement, ev: OfferCardCustomEvent<HTMLOfferCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLOfferCardElement: {
+        prototype: HTMLOfferCardElement;
+        new (): HTMLOfferCardElement;
+    };
+    interface HTMLOfferDetailElement extends Components.OfferDetail, HTMLStencilElement {
+    }
+    var HTMLOfferDetailElement: {
+        prototype: HTMLOfferDetailElement;
+        new (): HTMLOfferDetailElement;
+    };
+    interface HTMLOfferListElement extends Components.OfferList, HTMLStencilElement {
+    }
+    var HTMLOfferListElement: {
+        prototype: HTMLOfferListElement;
+        new (): HTMLOfferListElement;
+    };
     interface HTMLElementTagNameMap {
+        "app-root": HTMLAppRootElement;
         "my-component": HTMLMyComponentElement;
+        "offer-card": HTMLOfferCardElement;
+        "offer-detail": HTMLOfferDetailElement;
+        "offer-list": HTMLOfferListElement;
     }
 }
 declare namespace LocalJSX {
+    interface AppRoot {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -47,15 +105,35 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface OfferCard {
+        "description"?: string;
+        "name"?: string;
+        "offerId"?: string;
+        "onOfferClick"?: (event: OfferCardCustomEvent<string>) => void;
+        "price"?: string;
+    }
+    interface OfferDetail {
+        "offerId"?: string;
+    }
+    interface OfferList {
+    }
     interface IntrinsicElements {
+        "app-root": AppRoot;
         "my-component": MyComponent;
+        "offer-card": OfferCard;
+        "offer-detail": OfferDetail;
+        "offer-list": OfferList;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "offer-card": LocalJSX.OfferCard & JSXBase.HTMLAttributes<HTMLOfferCardElement>;
+            "offer-detail": LocalJSX.OfferDetail & JSXBase.HTMLAttributes<HTMLOfferDetailElement>;
+            "offer-list": LocalJSX.OfferList & JSXBase.HTMLAttributes<HTMLOfferListElement>;
         }
     }
 }
