@@ -15,6 +15,8 @@ import { MyComponent as MyComponentElement, defineCustomElement as defineMyCompo
 import { OfferCard as OfferCardElement, defineCustomElement as defineOfferCard } from "stencil-library/dist/components/offer-card.js";
 import { OfferDetail as OfferDetailElement, defineCustomElement as defineOfferDetail } from "stencil-library/dist/components/offer-detail.js";
 import { OfferList as OfferListElement, defineCustomElement as defineOfferList } from "stencil-library/dist/components/offer-list.js";
+import { ToastMessage as ToastMessageElement, defineCustomElement as defineToastMessage } from "stencil-library/dist/components/toast-message.js";
+import { ToastWrapper as ToastWrapperElement, defineCustomElement as defineToastWrapper } from "stencil-library/dist/components/toast-wrapper.js";
 
 export type AppRootEvents = NonNullable<unknown>;
 
@@ -69,4 +71,26 @@ export const OfferList: StencilReactComponent<OfferListElement, OfferListEvents>
     react: React,
     events: {} as OfferListEvents,
     defineCustomElement: defineOfferList
+});
+
+export type ToastMessageEvents = NonNullable<unknown>;
+
+export const ToastMessage: StencilReactComponent<ToastMessageElement, ToastMessageEvents> = /*@__PURE__*/ createComponent<ToastMessageElement, ToastMessageEvents>({
+    tagName: 'toast-message',
+    elementClass: ToastMessageElement,
+    // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+    react: React,
+    events: {} as ToastMessageEvents,
+    defineCustomElement: defineToastMessage
+});
+
+export type ToastWrapperEvents = NonNullable<unknown>;
+
+export const ToastWrapper: StencilReactComponent<ToastWrapperElement, ToastWrapperEvents> = /*@__PURE__*/ createComponent<ToastWrapperElement, ToastWrapperEvents>({
+    tagName: 'toast-wrapper',
+    elementClass: ToastWrapperElement,
+    // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+    react: React,
+    events: {} as ToastWrapperEvents,
+    defineCustomElement: defineToastWrapper
 });

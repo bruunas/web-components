@@ -33,6 +33,15 @@ export namespace Components {
     }
     interface OfferList {
     }
+    interface ToastMessage {
+        "message": string;
+        "showToast": () => Promise<void>;
+        "variant": 'success' | 'error' | 'info';
+    }
+    interface ToastWrapper {
+        "message": string;
+        "variant": 'success' | 'error' | 'info';
+    }
 }
 export interface OfferCardCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -80,12 +89,26 @@ declare global {
         prototype: HTMLOfferListElement;
         new (): HTMLOfferListElement;
     };
+    interface HTMLToastMessageElement extends Components.ToastMessage, HTMLStencilElement {
+    }
+    var HTMLToastMessageElement: {
+        prototype: HTMLToastMessageElement;
+        new (): HTMLToastMessageElement;
+    };
+    interface HTMLToastWrapperElement extends Components.ToastWrapper, HTMLStencilElement {
+    }
+    var HTMLToastWrapperElement: {
+        prototype: HTMLToastWrapperElement;
+        new (): HTMLToastWrapperElement;
+    };
     interface HTMLElementTagNameMap {
         "app-root": HTMLAppRootElement;
         "my-component": HTMLMyComponentElement;
         "offer-card": HTMLOfferCardElement;
         "offer-detail": HTMLOfferDetailElement;
         "offer-list": HTMLOfferListElement;
+        "toast-message": HTMLToastMessageElement;
+        "toast-wrapper": HTMLToastWrapperElement;
     }
 }
 declare namespace LocalJSX {
@@ -117,12 +140,22 @@ declare namespace LocalJSX {
     }
     interface OfferList {
     }
+    interface ToastMessage {
+        "message"?: string;
+        "variant"?: 'success' | 'error' | 'info';
+    }
+    interface ToastWrapper {
+        "message"?: string;
+        "variant"?: 'success' | 'error' | 'info';
+    }
     interface IntrinsicElements {
         "app-root": AppRoot;
         "my-component": MyComponent;
         "offer-card": OfferCard;
         "offer-detail": OfferDetail;
         "offer-list": OfferList;
+        "toast-message": ToastMessage;
+        "toast-wrapper": ToastWrapper;
     }
 }
 export { LocalJSX as JSX };
@@ -134,6 +167,8 @@ declare module "@stencil/core" {
             "offer-card": LocalJSX.OfferCard & JSXBase.HTMLAttributes<HTMLOfferCardElement>;
             "offer-detail": LocalJSX.OfferDetail & JSXBase.HTMLAttributes<HTMLOfferDetailElement>;
             "offer-list": LocalJSX.OfferList & JSXBase.HTMLAttributes<HTMLOfferListElement>;
+            "toast-message": LocalJSX.ToastMessage & JSXBase.HTMLAttributes<HTMLToastMessageElement>;
+            "toast-wrapper": LocalJSX.ToastWrapper & JSXBase.HTMLAttributes<HTMLToastWrapperElement>;
         }
     }
 }
