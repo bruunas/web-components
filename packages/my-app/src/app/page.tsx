@@ -4,6 +4,7 @@ import {
   MyComponent,
   OfferCard,
   OfferList,
+  ToastWrapper,
 } from "../../lib/components/stencil-generated/components";
 
 export default function Home() {
@@ -18,14 +19,17 @@ export default function Home() {
           height={38}
           priority
         />
-        {/* <MyComponent>Hello World</MyComponent>
-        <OfferList /> */}
+        <MyComponent>Hello World</MyComponent>
+        <OfferList />
         <OfferCard
           offerId="1"
           name="Assinatura Mensal"
           description="Acesso por 30 dias"
           price="R$ 29,90"
         />
+        <ToastWrapper message="Toast message" variant="success">
+          <button slot="trigger">Open Toast</button>
+        </ToastWrapper>
 
         <ol>
           <li>

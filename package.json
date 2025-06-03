@@ -7,5 +7,9 @@
   "dependencies": {},
   "devDependencies": {
     "lerna": "^8.2.2"
+  },
+  "scripts": {
+    "app:dev": "cd packages/my-app && yarn dev",
+    "components:dev": "cd packages/stencil-library && yarn start"
   }
 }
